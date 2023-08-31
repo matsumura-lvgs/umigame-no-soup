@@ -1,21 +1,17 @@
-type Question = {
-  id: number;
-  title: string;
-  sentence: string;
-  answer: string;
-};
-export type ApiResponse = {
-  result: { questions: Question[] };
-};
+import { Question, QuestionApiResponse } from "../api/questions/route";
 
-const Top = () => {
-  const questions = fetch<ApiResponse>(
-    "http://localhost:3000/api/questions"
-  ).then((res) => res.json());
+const Top = async () => {
+  const response = await fetch("http://localhost:3000/api/questions");
+  if (!response.ok) {
+    console.error(response.status);
+    throw new Error("Network response was not ok");
+  }
+  const data: QuestionApiResponse = await response.json();
+  const questions = data.result;
 
   return (
     <div>
-      {questions.map((question) => (
+      {questions.map((question: Question) => (
         <div key={question.id}>
           <h1>問題</h1>
           <p>{question.title}</p>
