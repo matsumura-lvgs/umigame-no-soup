@@ -1,4 +1,4 @@
-import { Question, QuestionApiResponse } from "../api/questions/route";
+import { Question, QuestionApiResponse } from "../type.ts/Question";
 
 const Top = async () => {
   const response = await fetch("http://localhost:3000/api/questions");

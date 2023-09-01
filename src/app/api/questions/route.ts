@@ -1,15 +1,5 @@
+import { Question } from "@/app/type.ts/Question";
 import { NextResponse } from "next/server";
-
-export type Question = {
-  id: number;
-  title: string;
-  sentence: string;
-  answer: string;
-};
-
-export type QuestionApiResponse = {
-  result: Question[];
-};
 
 export async function GET() {
   const response: { result: Question[] } = {
