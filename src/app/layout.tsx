@@ -18,14 +18,16 @@ export default function RootLayout({
   const links = [{ content: "top", path: "/top" }];
   return (
     <html lang="ja">
-      <>
-        {links.map(({ content, path }) => (
-          <Link key={path} href={path}>
-            {content}
-          </Link>
-        ))}
-        <body className={inter.className}>{children}</body>
-      </>
+      <body className={inter.className}>
+        <nav className="flex items-center justify-between flex-wrap bg-green-400 p-6">
+          {links.map(({ content, path }) => (
+            <Link key={path} href={path}>
+              {content}
+            </Link>
+          ))}
+        </nav>
+        {children}
+      </body>
     </html>
   );
 }
