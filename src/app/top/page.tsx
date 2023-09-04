@@ -1,13 +1,13 @@
-import { Question, QuestionApiResponse } from "../type.ts/Question";
+import { Question, QuestionApiResponse } from "../type/Question"
 
 const Top = async () => {
-  const response = await fetch("http://localhost:3000/api/questions");
+  const response = await fetch("http://localhost:3000/api/questions")
   if (!response.ok) {
-    console.error(response.status);
-    throw new Error("Network response was not ok");
+    console.error(response.status)
+    throw new Error("Network response was not ok")
   }
-  const data: QuestionApiResponse = await response.json();
-  const questions = data.result;
+  const data: QuestionApiResponse = await response.json()
+  const questions = data.result
 
   return (
     <div>
@@ -20,7 +20,7 @@ const Top = async () => {
         </div>
       ))}
     </div>
-  );
-};
+  )
+}
 
-export default Top;
+export default Top
