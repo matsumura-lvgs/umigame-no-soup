@@ -1,3 +1,4 @@
+import QuestionCard from "@/components/organisms/QuestionCard"
 import { Question, QuestionApiResponse } from "../type/Question"
 
 const Top = async () => {
@@ -11,12 +12,10 @@ const Top = async () => {
 
   return (
     <div>
+      {/* 二列ずつ、レスポンシブデザインに */}
       {questions.map((question: Question) => (
         <div key={question.id}>
-          <h1>問題</h1>
-          <p>{question.title}</p>
-          <p>{question.sentence}</p>
-          <p>{question.answer}</p>
+          <QuestionCard question={question} />
         </div>
       ))}
     </div>
