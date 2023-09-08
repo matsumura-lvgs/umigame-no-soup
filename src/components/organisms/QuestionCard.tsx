@@ -8,14 +8,14 @@ type Props = {
 const QuestionCard = ({ question }: Props) => {
   return (
     <Link href={`/questions/${question.id}`}>
-      <div className="bg-green-200 w-auto rounded-t-lg object-none mt-4 ml-4 shadow">
+      <div className="bg-green-200 rounded-t-lg mt-4 ml-4 w-64 shadow">
         <div className="relative aspect-square">
           <Image
             // いずれS3からの取得に変更
             src={`/images/questionCard/test${question.id}.png`}
             alt=""
             fill={true}
-            // className="object-cover"
+            className="object-cover w-50px bg-black"
           />
         </div>
         <h2>{question.title}</h2>

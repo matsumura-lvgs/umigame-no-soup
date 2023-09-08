@@ -11,15 +11,16 @@ const Top = async () => {
   const questions = data.result;
 
   return (
-    <div className="flex">
-      {/* 二列ずつ、レスポンシブデザインに */}
-      {/* この辺templatesに移動 */}
-      {questions.map((question: Question) => (
-        <div className="flex-auto" key={question.id}>
-          <QuestionCard question={question} />
-        </div>
-      ))}
-    </div>
+    <>
+      <h1 className="text-3xl mt-8">問題一覧</h1>
+      <div className="flex mt-4">
+        {questions.map((question: Question) => (
+          <div key={question.id}>
+            <QuestionCard question={question} />
+          </div>
+        ))}
+      </div>
+    </>
   );
 };
 
